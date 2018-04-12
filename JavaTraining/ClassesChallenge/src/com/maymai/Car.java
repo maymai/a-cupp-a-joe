@@ -51,8 +51,9 @@ public class Car extends Vehicle {
 
     private void setMaxSpeedAtGear() {
         if(getCurrentGear() > 0) {
-            this.maxSpeedAtGear = getMaxSpeed() / (getMaxGear() - getCurrentGear());
+            this.maxSpeedAtGear = getMaxSpeed() / (1 + (getMaxGear() - getCurrentGear()));
         } else {
+            this.maxSpeedAtGear = 0;
             System.out.println("Car in neutral gear, change gear first");
         }
     }
@@ -68,5 +69,17 @@ public class Car extends Vehicle {
     public double getMaxSpeedAtGear() {
         setMaxSpeedAtGear();
         return maxSpeedAtGear;
+    }
+    @Override
+    public void move(int speed) {
+        System.out.println("Trying to move " + speed);
+        if(getCurrentGear() <= 0) {
+            System.out.println(this.getName() + " is stopped");
+        } else if(speed > getMaxSpeedAtGear()) {
+            System.out.println(this.getName() + " can only go " + getMaxSpeedAtGear() +
+                " at gear " + getCurrentGear());
+        } else {
+            System.out.println("Moving " + speed);
+        }
     }
 }
