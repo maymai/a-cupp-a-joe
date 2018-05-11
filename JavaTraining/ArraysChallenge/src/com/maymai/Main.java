@@ -8,7 +8,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean moreNumbers = true;
+//        boolean moreNumbers = true;
         System.out.println("How many numbers do you want to sort?\r");
         int numberOfNumbers = scanner.nextInt();
         printIntsDesc(numberOfNumbers);
@@ -23,7 +23,7 @@ public class Main {
         return values;
     }
 
-    private static int[] SortDesc(int[] originalArray) {
+    private static int[] sortDesc(int[] originalArray) {
         int[] sortedArray = Arrays.copyOf(originalArray, originalArray.length);
         boolean continueSort = true;
         int currentNum;
@@ -43,7 +43,7 @@ public class Main {
 
     private static void printIntsDesc(int number) {
         int[] originalArray = getInts(number);
-        int[] newArray = SortDesc(originalArray);
+        int[] newArray = sortDesc(originalArray);
         System.out.println("Numbers in descending order:");
         for(int i=0;i<newArray.length;i++) {
             System.out.println("Number " + i + ": " + newArray[i]);

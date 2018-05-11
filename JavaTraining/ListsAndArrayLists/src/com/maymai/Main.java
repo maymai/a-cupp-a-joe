@@ -36,7 +36,7 @@ public class Main {
                 case 5:
                     searchForItem();
                     break;
-                case 6:
+                default:
                     quit = true;
                     break;
             }
